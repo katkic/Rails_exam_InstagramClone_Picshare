@@ -76,6 +76,8 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.9.0)
     execjs (2.7.0)
+    faker (2.7.0)
+      i18n (>= 1.6, < 1.8)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
     ffi (1.11.1-x86-mingw32)
@@ -216,6 +218,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chromedriver-helper
+  faker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
