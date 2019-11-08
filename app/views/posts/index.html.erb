@@ -10,15 +10,21 @@
 </div><!-- /.notice -->
 
 <h2>投稿一覧</h2>
+
 <% @posts.each do |post| %>
   <div class="post-container">
     <div class="post-header clearfix">
       <%= image_tag 'default.png', alt: 'ユーザーアイコン', size: '50x50' %>
       <%= 'user_name' %>
+      <%= link_to '詳細', post_path(post) %>|
+      <%= link_to '編集', edit_post_path(post) %>|
+      <%= link_to '削除', post_path(post),
+            method: :delete, data: { confirm: '削除してもいいですか？' }  %>
     </div><!-- /.post-header -->
 
     <div class="post-picture">
-      <p><%= image_tag post.image.url, alt: '画像の説明はありません', size: '500' %></p>
+      <p><%= image_tag post.image.url,
+              alt: '画像の説明はありません', size: '500'  if post.image && post.image.url %></p>
     </div><!-- /.post-picture -->
 
     <div class="post-icon">
