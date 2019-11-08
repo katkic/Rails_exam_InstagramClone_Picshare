@@ -1,2 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<header>
+</header>
+
+<div class="notice">
+  <h3><%= notice %></h3>
+</div><!-- /.notice -->
+
+<h2>ユーザー情報</h2>
+
+<div class="user-content">
+  <div class="user-left">
+    <p><%= image_tag @user.image, alt: @user.full_name, size: '70x70' %></p>
+  </div><!-- /.user-left -->
+
+  <div class="user-right">
+    <table>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>フルネーム</th>
+        <td><%= @user.full_name %></td>
+      </tr>
+      <tr>
+        <th>ユーザーネーム</th>
+        <td><%= @user.user_name %></td>
+      </tr>
+    </table>
+  </div><!-- /.user-right -->
+</div><!-- /.user-content -->
+
+<footer>
+</footer>

@@ -1,42 +1,29 @@
-<h1>ユーザー 一覧</h1>
+<h2>ユーザー 一覧</h2>
+
 <table>
   <thead>
-    <tr>
-      <td>id</td>
-      <td>アイコン</td>
-      <td>ユーザー名</td>
-      <td>名前</td>
-      <td>メールアドレス</td>
-    </tr>
+  <tr>
+    <th>id</th>
+    <th>アイコン</th>
+    <th>ユーザー名</th>
+    <th>名前</th>
+    <th>メールアドレス</th>
+    <th>作成日</th>
+    <th>更新日</th>
+  </tr>
   </thead>
+
   <tbody>
-    <tr>
-      <td>1</td>
-      <td><%= image_tag 'default.png', size: '50x50' %></td>
-      <td>yamada</td>
-      <td>山田太郎</td>
-      <td>yamada@example.com</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><%= image_tag 'default.png', size: '50x50' %></td>
-      <td>yamada</td>
-      <td>山田太郎</td>
-      <td>yamada@example.com</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><%= image_tag 'default.png', size: '50x50' %></td>
-      <td>yamada</td>
-      <td>山田太郎</td>
-      <td>yamada@example.com</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><%= image_tag 'default.png', size: '50x50' %></td>
-      <td>yamada</td>
-      <td>山田太郎</td>
-      <td>yamada@example.com</td>
-    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= image_tag user.image, size: '50x50' %></td>
+        <td><%= user.user_name %></td>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+        <td><%= user.updated_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
