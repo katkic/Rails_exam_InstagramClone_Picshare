@@ -3,37 +3,7 @@
 </header>
 
 <h2>新規投稿</h2>
-
-<div class="post-area">
-  <%= form_with model: @post, local: true do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation" class="error-messages">
-        <h2><%= @post.errors.count %>件のエラーがあります。</h2>
-        <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div><!-- /.error_explanation -->
-    <% end %>
-
-    <div class="post-image">
-      <div class="photo-icon">
-        <i class="far fa-image fa-lg"></i>
-        <%= f.label :image, '写真' %>
-      </div>
-      <%= f.file_field :image, class: 'post-img-area' %>
-    </div><!-- /.post-image -->
-
-    <div class="post-caption">
-      <%= f.text_area :caption, cols: 30, rows: 6,
-            placeholder: 'キャプションを書く', spellcheck: false %>
-    </div><!-- /.post-caption -->
-    <div class="submit-btn clearfix">
-      <%= f.submit class: 'create-btn' %>
-    </div><!-- /.submit -->
-  <% end %><!-- /form_with -->
-</div><!-- /.post-area -->
+<%= render 'post_form', post: @post %>
 
 <footer>
   <p>footer</p>
