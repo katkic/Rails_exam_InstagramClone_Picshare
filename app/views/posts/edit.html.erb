@@ -4,6 +4,8 @@
 
 <h2>投稿編集</h2>
 
+<%= link_to '戻る', :back %>
+
 <div class="post-area">
   <%= form_with model: @post, local: true do |f| %>
     <% if @post.errors.any? %>
