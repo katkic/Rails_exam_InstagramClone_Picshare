@@ -1,0 +1,30 @@
+<h2 class="confirm-title">以下の内容で送信しますか？</h2>
+
+<div class="post-container">
+  <div class="post-header clearfix">
+    <%= image_tag 'default.png', alt: 'ユーザーアイコン', size: '50x50' %>
+    <%= 'user_name' %>
+  </div><!-- /.post-header -->
+
+  <%= form_with model: @post, local: true do |f| %>
+    <div class="post-picture">
+      <p><%= image_tag @post.image.url, alt: '画像の説明はありません',
+                size: '500' if @post.image && @post.image.url %></p>
+    </div><!-- /.post-picture -->
+
+    <div class="post-caption">
+      user_name <%= @post.caption %>
+    </div><!-- /.post-caption -->
+
+    <%= f.hidden_field :image_cache %>
+    <%= f.hidden_field :caption %>
+    <%= f.submit %>
+  <% end %>
+
+  <%= form_with model: @post, url: new_post_path, method: 'get',
+          local: true, class: 'clearfix' do |f| %>
+    <%= f.hidden_field :image_cache %>
+    <%= f.hidden_field :caption %>
+    <%= f.submit '戻る', name: 'back', class: 'back-btn' %>
+  <% end %>
+</div><!-- /.post-container -->
