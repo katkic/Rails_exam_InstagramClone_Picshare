@@ -8,6 +8,6 @@ class User < ApplicationRecord
                     uniqueness: true,
                     length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
-                              allow_blank: true },
+                              allow_blank: true }
   validates :password, length: { minimum: 8, allow_blank: true }
 end
