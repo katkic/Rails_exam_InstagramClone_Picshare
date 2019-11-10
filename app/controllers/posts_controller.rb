@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post
   end
 
   def new
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to posts_path, notice: '投稿しました'
@@ -28,7 +27,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post
   end
 
   def update
@@ -45,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     render :new if @post.invalid?
   end
 
@@ -56,6 +54,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 end
