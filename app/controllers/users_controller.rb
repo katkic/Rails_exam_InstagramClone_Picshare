@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [:show, :new, :create]
+
   def index
     @users = User.all
   end
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
       :full_name,
       :user_name,
       :password,
-      :password_confirmation,
+      :password_confirmation
     )
   end
 end
