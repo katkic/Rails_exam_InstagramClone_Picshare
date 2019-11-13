@@ -1,0 +1,35 @@
+/* トップページ */
+.top-container {
+  width: 770px;
+  margin: 60px auto 0;
+}
+
+.top-title {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.top-left-container {
+  width: 350px;
+  float: left;
+}
+
+.top-right-container {
+  width: 350px;
+  float: left;
+}
+
+.user-create-container {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.user-create-container p {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.user-create-container a.register-btn {
+  color: #3897F0;
+}

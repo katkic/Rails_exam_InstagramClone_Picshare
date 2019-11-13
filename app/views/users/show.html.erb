@@ -1,34 +1,27 @@
-<header>
-</header>
+<p class="notice"><%= notice %></p>
 
-<div class="notice">
-  <h3><%= notice %></h3>
-</div><!-- /.notice -->
+<div class="user-container">
+  <div class="inner-top-container">
+    <div class="img-container">
+      <p><%= image_tag @user.image, alt: @user.full_name, class: 'cover100' %></p>
+    </div><!-- /.user-left -->
 
-<h2>ユーザー情報</h2>
-
-<div class="user-content">
-  <div class="user-left">
-    <p><%= image_tag @user.image, alt: @user.full_name, size: '70x70' %></p>
-  </div><!-- /.user-left -->
-
-  <div class="user-right">
-    <table>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th>フルネーム</th>
-        <td><%= @user.full_name %></td>
-      </tr>
-      <tr>
-        <th>ユーザーネーム</th>
-        <td><%= @user.user_name %></td>
-      </tr>
-    </table>
-  </div><!-- /.user-right -->
-</div><!-- /.user-content -->
-
-<footer>
-</footer>
+    <div>
+      <table class="user-info">
+        <tr class="user-show">
+          <th class="form-title user-info-show">メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr class="user-show">
+          <th class="form-title user-info-show">フルネーム</th>
+          <td><%= @user.full_name %></td>
+        </tr>
+        <tr class="user-show">
+          <th class="form-title user-info-show">ユーザーネーム</th>
+          <td><%= @user.user_name %></td>
+        </tr>
+      </table>
+    </div><!-- /.user-right -->
+  </div><!-- /.inner-top-container -->
+</div><!-- /.user-container -->
+<%= link_to 'ログイン', new_session_path, class: 'user-login' %>
