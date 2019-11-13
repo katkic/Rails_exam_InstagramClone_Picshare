@@ -2,8 +2,8 @@
 
 <div class="post-container">
   <div class="post-header clearfix">
-    <%= image_tag 'default.png', alt: 'ユーザーアイコン', size: '50x50' %>
-    <%= 'user_name' %>
+    <%= image_tag current_user.image, alt: current_user.user_name, size: '50x50' %>
+    <%= current_user.user_name %>
   </div><!-- /.post-header -->
 
   <%= form_with model: @post, local: true do |f| %>
@@ -13,7 +13,8 @@
     </div><!-- /.post-picture -->
 
     <div class="post-caption">
-      user_name <%= @post.caption %>
+      <%= @post.user.user_name %>
+      <%= @post.caption %>
     </div><!-- /.post-caption -->
 
     <%= f.hidden_field :image_cache %>
