@@ -1,0 +1,68 @@
+<div class="top-container">
+  <div class="inner-top-container">
+    <div class="outer-form-container box-border">
+
+      <div class="form-container">
+        <%= form_with model: @user, url: account_path, local: true do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= @user.errors.count %>件のエラーがあります</h2>
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div><!-- /.error_explanation -->
+          <% end %>
+
+          <table>
+            <tr>
+              <p class="user-icon100">
+                <%= image_tag image_set(@user), alt: @user.full_name, class: 'cover100' %>
+              </p>
+              <div class="edit-user-icon">
+                <%= f.label :image, 'ユーザーアイコン' %>
+                <%= f.file_field :image, class: 'post-image-area' %>
+              </div><!-- /.edit-user-icon -->
+            </tr>
+            <tr>
+              <th class="form-title"><%= f.label :email, 'メールアドレス' %></th>
+            </tr>
+            <tr>
+              <td><%= f.text_field :email, class: 'form-input' %></td>
+            </tr>
+            <tr>
+              <th class="form-title"><%= f.label :full_name, 'フルネーム' %></th>
+            </tr>
+            <tr>
+              <td><%= f.text_field :full_name, class: 'form-input' %></td>
+            </tr>
+            <tr>
+              <th class="form-title"><%= f.label :user_name, 'ユーザーネーム' %></th>
+            </tr>
+            <tr>
+              <td><%= f.text_field :user_name, class: 'form-input' %></td>
+            </tr>
+            <tr>
+              <th class="form-title"><%= f.label :password, 'パスワード' %></th>
+            </tr>
+            <tr>
+              <td><%= f.password_field :password, class: 'form-input' %></td>
+            </tr>
+            <tr>
+              <th class="form-title"><%= f.label :password_confirmation, 'パスワード確認用' %></th>
+            </tr>
+            <tr>
+              <td><%= f.password_field :password_confirmation, class: 'form-input' %></td>
+            </tr>
+            <tr>
+              <td><%= f.submit class: 'form-btn' %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div><!-- /.form-container -->
+    </div><!-- /.outer-form-container -->
+
+  </div><!-- /.inner-top-container -->
+</div><!-- /.top-container -->
+

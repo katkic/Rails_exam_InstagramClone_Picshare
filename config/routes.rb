@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: %i[new create destroy]
+  resource :account, only: %i[show edit update destroy]
 end
