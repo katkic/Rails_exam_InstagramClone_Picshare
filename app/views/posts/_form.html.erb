@@ -1,5 +1,6 @@
 <div class="post-container">
-  <%= form_with model: post, url: confirm_posts_path, local: true do |f| %>
+  <%= form_with model: post, url: confirm_posts_path,
+        local: true, class: 'post-form' do |f| %>
     <% if post.errors.any? %>
       <div id="error_explanation" class="error-messages">
         <h2><%= post.errors.count %>件のエラーがあります。</h2>
@@ -18,14 +19,14 @@
       </div>
 
       <%= f.file_field :image, class: 'post-image-area' %>
-      <p><%= image_tag post.image.url, size: '500',
-                class: 'content-img' if post.image && post.image.url %></p>
+      <p><%= image_tag post.image.url,
+                class: 'new-img' if post.image && post.image.url %></p>
       <%= f.hidden_field :image_cache %>
     </div><!-- /.post-image -->
 
     <div class="post-caption">
       <%= f.text_area :caption, cols: 30, rows: 6,
-            placeholder: 'キャプションを書く', spellcheck: false %>
+            placeholder: 'キャプションを書く', spellcheck: false, class: 'caption' %>
     </div><!-- /.post-caption -->
 
     <div class="submit-btn clearfix">

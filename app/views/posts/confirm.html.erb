@@ -9,7 +9,7 @@
   <%= form_with model: @post, local: true do |f| %>
     <div class="post-picture">
       <p><%= image_tag @post.image.url, alt: '画像の説明はありません',
-                size: '500' if @post.image && @post.image.url %></p>
+                class: 'new-img' if @post.image && @post.image.url %></p>
     </div><!-- /.post-picture -->
 
     <div class="post-caption">
