@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :login_required, only: [:show, :new, :create]
 
   def index
-    @users = User.all
+    @users = User.order(created_at: :asc)
   end
 
   def show
