@@ -2,7 +2,7 @@
 
 <div class="post-container">
   <div class="post-header clearfix">
-    <%= image_tag current_user.image, alt: current_user.user_name, size: '50x50' %>
+    <%= image_tag image_set(current_user), alt: current_user.user_name, size: '50x50' %>
     <%= current_user.user_name %>
   </div><!-- /.post-header -->
 
