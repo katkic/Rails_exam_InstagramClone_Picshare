@@ -1,5 +1,5 @@
 <div class="post-container">
-  <%= form_with model: post, url: confirm_posts_path,
+  <%= form_with model: post, url: choose_new_or_edit,
         local: true, class: 'post-form' do |f| %>
     <% if post.errors.any? %>
       <div id="error_explanation" class="error-messages">
