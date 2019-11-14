@@ -2,7 +2,7 @@
 <div class="user-container">
   <div class="inner-top-container">
     <div class="img-container">
-      <p><%= image_tag @user.image.url, alt: @user.full_name, class: 'cover100' %></p>
+      <p><%= image_tag image_set(@user), alt: @user.full_name, class: 'cover100' %></p>
     </div><!-- /.user-left -->
 
     <div>
