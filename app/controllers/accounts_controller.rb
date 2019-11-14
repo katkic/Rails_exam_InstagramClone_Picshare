@@ -34,6 +34,6 @@ class AccountsController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:id])
   end
 end

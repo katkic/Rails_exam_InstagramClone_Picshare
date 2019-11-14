@@ -7,7 +7,7 @@
       <% end %>
     </div><!-- /.header-left -->
 
-    <%= link_to account_path do %>
+    <%= link_to account_path(current_user) do %>
       <div class="header-center f-left">
         <p class="f-left">
           <%= image_tag image_set(current_user),
@@ -33,7 +33,7 @@
           <% end %>
         </li>
         <li class="f-left">
-          <%= link_to account_path do %>
+          <%= link_to account_path(current_user) do %>
             <i class="far fa-user fa-1_8x fa-fw"></i>
           <% end %>
         </li>

@@ -1,6 +1,7 @@
 <div class="post-container">
   <div class="post-header clearfix">
-    <%= link_to account_path do %>
+    <%# ユーザーアカウントへのリンク %>
+    <%= link_to account_path(post.user.id) do %>
       <p class="f-left">
         <%= image_tag image_set(post.user),
               alt: post.user.user_name, class: 'cover40' %>

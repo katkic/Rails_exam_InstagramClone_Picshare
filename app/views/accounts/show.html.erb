@@ -1,22 +1,24 @@
 <div class="user-container">
   <div class="inner-top-container">
     <div class="menu-icon menu-right">
-      <% unless action_name == 'show' %>
-        <%# 詳細 %>
-        <%= link_to account_path(@user) do %>
-          <i class="fas fa-info-circle fa-1_5x fa-fw"></i>
+      <% if current_user == @user %>
+        <% unless action_name == 'show' %>
+          <%# 詳細 %>
+          <%= link_to account_path(@user) do %>
+            <i class="fas fa-info-circle fa-1_5x fa-fw"></i>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <%# 編集 %>
-      <%= link_to edit_account_path(@user) do %>
-        <i class="far fa-edit fa-1_5x fa-fw"></i>
-      <% end %>
+        <%# 編集 %>
+        <%= link_to edit_account_path(@user) do %>
+          <i class="far fa-edit fa-1_5x fa-fw"></i>
+        <% end %>
 
-      <%# 削除 %>
-      <%= link_to  account_path(@user),
-            method: :delete, data: { confirm: '削除してもいいですか？' } do %>
-        <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
+        <%# 削除 %>
+        <%= link_to  account_path(@user),
+              method: :delete, data: { confirm: '削除してもいいですか？' } do %>
+          <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
+        <% end %>
       <% end %>
     </div><!-- /.menu-icon -->
 
