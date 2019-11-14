@@ -1,42 +1,48 @@
-<header class="clearfix">
-  <div class="header-container">
+<header>
+  <div class="header-container clearfix">
     <div class="header-left f-left">
-      <i class="fab fa-instagram fa-1_8x f-left"></i>
-      <h1 class="f-left">Picshare</h1>
+      <%= link_to posts_path do %>
+        <i class="fab fa-instagram fa-1_8x f-left"></i>
+        <h1 class="f-left">Picshare</h1>
+      <% end %>
     </div><!-- /.header-left -->
 
-    <% if current_user %>
+    <%= link_to account_path do %>
       <div class="header-center f-left">
         <p class="f-left">
-          <%= image_tag current_user.image,
+          <%= image_tag image_set(current_user),
                 alt: current_user.user_name, class: 'user-icon cover50' %>
-        </p>
+        </p><!-- /. -->
         <div class="f-left">
           <p class="user-name f-bold"><%= current_user.user_name %></p>
           <p class="user-name full-name"><%= current_user.full_name %></p>
-        </div>
+        </div><!-- /.f-left-->
       </div><!-- /.header-center -->
-
-      <div class="header-right f-right">
-        <ul class="clearfix">
-          <li class="f-left">
-            <%= link_to new_post_path do %>
-              <i class="far fa-plus-square fa-1_8x fa-fw"></i>
-            <% end %>
-          </li>
-          <li class="f-left">
-            <i class="far fa-heart fa-1_8x fa-fw"></i>
-          </li>
-          <li class="f-left">
-            <i class="far fa-user fa-1_8x fa-fw"></i>
-          </li>
-          <li class="f-left">
-            <%= link_to session_path, method: :delete  do %>
-              <i class="fas fa-sign-out-alt fa-1_8x fa-fw"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div><!-- /.header-right -->
     <% end %>
+
+    <div class="header-right f-right">
+      <ul class="clearfix">
+        <li class="f-left">
+          <%= link_to new_post_path do %>
+            <i class="far fa-plus-square fa-1_8x fa-fw"></i>
+          <% end %>
+        </li>
+        <li class="f-left">
+          <%= link_to '#' do %>
+            <i class="far fa-heart fa-1_8x fa-fw"></i>
+          <% end %>
+        </li>
+        <li class="f-left">
+          <%= link_to account_path do %>
+            <i class="far fa-user fa-1_8x fa-fw"></i>
+          <% end %>
+        </li>
+        <li class="f-left">
+          <%= link_to session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt fa-1_8x fa-fw"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.header-right -->
   </div><!-- /.header-container -->
 </header>
