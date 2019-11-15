@@ -135,6 +135,11 @@
 .submit-btn {
   text-align: right;
 }
+
 .create-btn {
 
+}
+
+.favorite-icon {
+  color: red;
 }
