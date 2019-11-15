@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
   end
 
   def show
+    @favorite = current_user.favorites.find_by(post_id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new

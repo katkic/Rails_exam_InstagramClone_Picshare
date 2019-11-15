@@ -11,7 +11,6 @@
       </p>
     <% end %>
 
-    <% if current_user == post.user %>
       <div class="menu-icon f-right">
         <% unless action_name == 'show' %>
           <%# 詳細 %>
@@ -20,18 +19,19 @@
           <% end %>
         <% end %>
 
-        <%# 編集 %>
-        <%= link_to edit_post_path(post) do %>
-          <i class="far fa-edit fa-1_5x fa-fw"></i>
-        <% end %>
+        <% if current_user == post.user %>
+          <%# 編集 %>
+          <%= link_to edit_post_path(post) do %>
+            <i class="far fa-edit fa-1_5x fa-fw"></i>
+          <% end %>
 
-        <%# 削除 %>
-        <%= link_to  post_path(post),
-              method: :delete, data: { confirm: '削除してもいいですか？' } do %>
-          <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
+          <%# 削除 %>
+          <%= link_to  post_path(post),
+                method: :delete, data: { confirm: '削除してもいいですか？' } do %>
+            <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
+          <% end %>
         <% end %>
       </div><!-- /.menu-icon -->
-    <% end %>
   </div><!-- /.post-header -->
 
   <div class="post-picture">
