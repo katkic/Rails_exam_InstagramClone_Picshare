@@ -41,9 +41,18 @@
 
   <div class="post-bottom">
     <div class="post-icon">
-      <%= link_to '#' do %>
-        <i class="far fa-heart fa-1_5x fa-fw"></i>
+      <% if @favorite %>
+        <%# お気に入り解除 %>
+        <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+          <i class="fas fa-heart fa-1_5x fa-fw favorite-icon"></i>
+        <% end %>
+      <% else %>
+        <%# お気に入り登録 %>
+        <%= link_to favorites_path(post_id: post.id), method: :post do %>
+          <i class="far fa-heart fa-1_5x fa-fw"></i>
+        <% end %>
       <% end %>
+
       <i class="far fa-comment fa-1_5x fa-fw"></i>
       <i class="far fa-share-square fa-1_5x fa-fw"></i>
       <i class="far fa-bookmark fa-1_5x fa-fw right-position"></i>

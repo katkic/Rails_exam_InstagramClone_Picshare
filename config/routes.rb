@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resource :session, only: %i[new create destroy]
   resources :accounts, only: %i[show edit update destroy]
+  resources :favorites, only: %i[create destroy]
 
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
 end
