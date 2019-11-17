@@ -1,0 +1,85 @@
+<div class="outer-container">
+  <div class="container">
+    <h2 class="page-title">お気に入り一覧</h2>
+
+    <div class="page-menu">
+      <ul>
+        <%= link_to :back do %><li>戻る</li><% end %>
+        <%= link_to posts_path do %><li>投稿一覧へ</li><% end %>
+      </ul>
+    </div><!-- /.page-menu -->
+
+    <% @favorites.each do |favorite| %>
+      <div class="post-container">
+        <div class="post-header clearfix">
+          <%# ユーザーアカウントへのリンク %>
+          <%= link_to account_path(favorite.post.user) do %>
+            <p class="f-left">
+              <%= image_tag image_set(favorite.post.user),
+                    alt: favorite.post.user.user_name, class: 'cover40' %>
+            </p>
+            <p class="f-left post-user-name f-bold">
+              <%= favorite.post.user.user_name %>
+            </p>
+          <% end %>
+
+            <div class="menu-icon f-right">
+              <% unless action_name == 'show' %>
+                <%# 詳細 %>
+                <%= link_to post_path(favorite.post) do %>
+                  <i class="fas fa-info-circle fa-1_5x fa-fw"></i>
+                <% end %>
+              <% end %>
+
+              <% if current_user == favorite.post.user %>
+                <%# 編集 %>
+                <%= link_to edit_post_path(favorite.post) do %>
+                  <i class="far fa-edit fa-1_5x fa-fw"></i>
+                <% end %>
+
+                <%# 削除 %>
+                <%= link_to  post_path(favorite.post),
+                      method: :delete, data: { confirm: '投稿を削除してもいいですか？' } do %>
+                  <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
+                <% end %>
+              <% end %>
+            </div><!-- /.menu-icon -->
+        </div><!-- /.post-header -->
+
+        <div class="post-picture">
+          <p><%= image_tag favorite.post.image.url,
+                  alt: '画像の説明はありません', class: 'main-img' if favorite.post.image && favorite.post.image.url %></p>
+        </div><!-- /.post-picture -->
+
+        <div class="post-bottom">
+          <div class="post-icon">
+            <% if favorite %>
+              <%# お気に入り解除 %>
+              <%= link_to favorite_path(id: favorite.id), method: :delete do %>
+                <i class="fas fa-heart fa-1_5x fa-fw favorite-icon"></i>
+              <% end %>
+            <% else %>
+              <%# お気に入り登録 %>
+              <%= link_to favorites_path(post_id: favorite.post_id), method: :post do %>
+                <i class="far fa-heart fa-1_5x fa-fw"></i>
+              <% end %>
+            <% end %>
+
+            <i class="far fa-comment fa-1_5x fa-fw"></i>
+            <i class="far fa-share-square fa-1_5x fa-fw"></i>
+            <i class="far fa-bookmark fa-1_5x fa-fw right-position"></i>
+          </div><!-- /.post-icon -->
+
+          <div class="post-caption">
+            <p class="f-bold"><%= favorite.user.user_name %></p>
+            <p><%= favorite.post.caption %></p>
+          </div><!-- /.post-caption -->
+
+          <div class="post-time">
+            <p><%= favorite.post.created_at.strftime('%Y年%m月%d日 %H:%M') %></p>
+          </div><!-- /.post-time -->
+        </div><!-- /.post-bottom -->
+      </div><!-- /.post-container -->
+    <% end %>
+  </div><!-- /.container -->
+</div><!-- /.outer-container -->
