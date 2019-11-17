@@ -17,6 +17,8 @@
 body {
   margin: 0;
   background-color: #FAFAFA;
+  font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+                'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
 }
 
 * {
