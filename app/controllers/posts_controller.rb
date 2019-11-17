@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -11,11 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @post = Post.new(post_params)
-    else
-      @post = Post.new
-    end
+    @post = params[:back] ? Post.new(post_params) : Post.new
   end
 
   def create
