@@ -71,10 +71,23 @@ select {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.page-notice {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .notice-failed {
   color: red;
+}
+
+.page-title-area {
+  width: 100%;
+  padding-top: 40px;
 }
 
 header {

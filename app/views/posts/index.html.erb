@@ -1,5 +1,6 @@
 <div class="outer-container">
   <div class="container">
+    <p class="page-notice"><%= notice %></p>
     <% @posts.each do |post| %>
       <% @favorite = current_user.favorites.find_by(post_id: post.id) %>
       <%= render 'content', post: post %>
