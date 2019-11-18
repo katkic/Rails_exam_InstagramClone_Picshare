@@ -18,7 +18,7 @@
         <%= f.label :image %>
       </div>
 
-      <%= f.file_field :image, class: 'new-post-file' %>
+      <%= f.file_field :image, class: 'new-post-file', accept: '.png, .jpg, .gif' %>
       <p><%= image_tag post.image.url,
                 class: 'main-img' if post.image && post.image.url %></p>
       <%= f.hidden_field :image_cache %>
