@@ -1,6 +1,6 @@
-<div class="post-container">
-  <%= form_with model: post, url: choose_new_or_edit,
-        local: true, class: 'post-form' do |f| %>
+<%= form_with model: post, url: choose_new_or_edit,
+      local: true do |f| %>
+  <div class="new-post-container">
     <% if post.errors.any? %>
       <div id="error_explanation" class="error-messages">
         <h2><%= post.errors.count %>件のエラーがあります。</h2>
@@ -13,14 +13,14 @@
     <% end %>
 
     <div class="post-image">
-      <div class="photo-icon">
+      <div class="new-post-area">
         <i class="far fa-image fa-lg"></i>
-        <%= f.label :image, '写真' %>
+        <%= f.label :image %>
       </div>
 
-      <%= f.file_field :image, class: 'post-image-area' %>
+      <%= f.file_field :image, class: 'new-post-file' %>
       <p><%= image_tag post.image.url,
-                class: 'new-img' if post.image && post.image.url %></p>
+                class: 'main-img' if post.image && post.image.url %></p>
       <%= f.hidden_field :image_cache %>
     </div><!-- /.post-image -->
 
@@ -28,9 +28,9 @@
       <%= f.text_area :caption, cols: 30, rows: 6,
             placeholder: 'キャプションを書く', spellcheck: false, class: 'caption' %>
     </div><!-- /.post-caption -->
+  </div><!-- /.new-post-container -->
 
-    <div class="submit-btn clearfix">
-      <%= f.submit class: 'create-btn' %>
-    </div><!-- /.submit -->
-  <% end %><!-- /form_with -->
-</div><!-- /.post-post-container -->
+  <div class="submit-btn clearfix">
+    <%= f.submit '確認する', class: 'post-btn' %>
+  </div><!-- /.submit -->
+<% end %><!-- /form_with -->

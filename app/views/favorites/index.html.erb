@@ -2,12 +2,7 @@
   <div class="container">
     <h2 class="page-title">お気に入り一覧</h2>
 
-    <div class="page-menu">
-      <ul>
-        <%= link_to :back do %><li>戻る</li><% end %>
-        <%= link_to posts_path do %><li>投稿一覧へ</li><% end %>
-      </ul>
-    </div><!-- /.page-menu -->
+    <%= render 'shared/page_menu' %>
 
     <% @favorites.each do |favorite| %>
       <div class="post-container">
@@ -23,27 +18,27 @@
             </p>
           <% end %>
 
-            <div class="menu-icon f-right">
-              <% unless action_name == 'show' %>
-                <%# 詳細 %>
-                <%= link_to post_path(favorite.post) do %>
-                  <i class="fas fa-info-circle fa-1_5x fa-fw"></i>
-                <% end %>
+          <div class="menu-icon f-right">
+            <% unless action_name == 'show' %>
+              <%# 詳細 %>
+              <%= link_to post_path(favorite.post) do %>
+                <i class="fas fa-info-circle fa-1_5x fa-fw"></i>
+              <% end %>
+            <% end %>
+
+            <% if current_user == favorite.post.user %>
+              <%# 編集 %>
+              <%= link_to edit_post_path(favorite.post) do %>
+                <i class="far fa-edit fa-1_5x fa-fw"></i>
               <% end %>
 
-              <% if current_user == favorite.post.user %>
-                <%# 編集 %>
-                <%= link_to edit_post_path(favorite.post) do %>
-                  <i class="far fa-edit fa-1_5x fa-fw"></i>
-                <% end %>
-
-                <%# 削除 %>
-                <%= link_to  post_path(favorite.post),
-                      method: :delete, data: { confirm: '投稿を削除してもいいですか？' } do %>
-                  <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
-                <% end %>
+              <%# 削除 %>
+              <%= link_to  post_path(favorite.post),
+                    method: :delete, data: { confirm: '投稿を削除してもいいですか？' } do %>
+                <i class="far fa-trash-alt fa-1_5x fa-fw"></i>
               <% end %>
-            </div><!-- /.menu-icon -->
+            <% end %>
+          </div><!-- /.menu-icon -->
         </div><!-- /.post-header -->
 
         <div class="post-picture">

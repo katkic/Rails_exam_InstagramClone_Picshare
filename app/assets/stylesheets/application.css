@@ -82,7 +82,9 @@ header {
   height: 80px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
-  vertical-align: middle;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .header-container {
@@ -157,6 +159,26 @@ header {
 
 footer {
   text-align: center;
+  margin-top: 60px;
   padding: 30px;
   background-color: #fff;
+}
+
+.error-messages {
+  padding: 20px 0 0 20px;
+  color: red;
+}
+
+/* 投稿表示のページメニュー */
+/* 戻る 投稿一覧へ */
+.page-menu {
+  padding-bottom: 10px;
+}
+
+.page-menu li {
+  display: inline-block;
+}
+
+.page-menu li:first-child {
+  margin-right: 480px;
 }

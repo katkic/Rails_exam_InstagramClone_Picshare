@@ -1,31 +1,28 @@
-<h2 class="confirm-title">以下の内容で送信しますか？</h2>
-
-<div class="post-container">
-  <div class="post-header clearfix">
-    <%= image_tag image_set(current_user), alt: current_user.user_name, size: '50x50' %>
-    <%= current_user.user_name %>
-  </div><!-- /.post-header -->
+<div class="outer-post-container">
+<h2 class="page-title">以下の内容で送信しますか？</h2>
 
   <%= form_with model: @post, local: true do |f| %>
+  <div class="new-post-container">
     <div class="post-picture">
       <p><%= image_tag @post.image.url, alt: '画像の説明はありません',
-                class: 'new-img' if @post.image && @post.image.url %></p>
+                class: 'main-img' if @post.image && @post.image.url %></p>
     </div><!-- /.post-picture -->
 
-    <div class="post-caption">
-      <%= @post.user.user_name %>
-      <%= @post.caption %>
+    <div class="confirm-caption">
+      <p><%= @post.caption %></p>
     </div><!-- /.post-caption -->
 
     <%= f.hidden_field :image_cache %>
     <%= f.hidden_field :caption %>
-    <%= f.submit %>
+    </div><!-- /.new-post-container -->
+    <%= f.submit '送信する', class: 'post-btn f-right' %>
   <% end %>
 
   <%= form_with model: @post, url: new_post_path, method: 'get',
           local: true, class: 'clearfix' do |f| %>
     <%= f.hidden_field :image_cache %>
     <%= f.hidden_field :caption %>
-    <%= f.submit '戻る', name: 'back', class: 'back-btn' %>
+    <%= f.submit '戻る', name: 'back', class: 'post-btn' %>
   <% end %>
+</div><!-- /.container -->
 </div><!-- /.post-container -->
