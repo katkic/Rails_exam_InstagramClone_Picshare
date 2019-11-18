@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     redirect_to posts_path if current_user
   end
 
+  # 投稿確認画面で再読み込みした場合、新規投稿画面へリダイレクト
+  def chack_id
+    redirect_to new_post_path if params[:id] == 'confirm'
+  end
+
   private
 
   def current_user

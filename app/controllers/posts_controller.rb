@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
+  before_action :chack_id, only: [:show]
 
   def index
     @posts = Post.order(created_at: :desc)
