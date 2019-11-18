@@ -1,4 +1,28 @@
-/* ユーザー詳細画面 ------------------------- */
+/* ユーザー一覧 ------------------------- */
+.users-container {
+  width: 980px;
+  margin: 100px auto 0;
+}
+.users-inner-container {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #E6E6E6;
+
+}
+
+.users-inner-container th {
+  width: 90px;
+}
+
+.users-inner-container td {
+  text-align: center;
+}
+
+.users-inner-container tr:nth-child(even) td {
+  background: #c4e9ff;
+}
+
+/* ユーザー詳細 ------------------------- */
 .user-container {
   width: 600px;
   margin: 0 auto;

@@ -1,29 +1,33 @@
-<h2>ユーザー 一覧</h2>
+<div class="users-container">
+  <h2 class="page-title">ユーザー 一覧</h2>
 
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>アイコン</th>
-    <th>ユーザー名</th>
-    <th>名前</th>
-    <th>メールアドレス</th>
-    <th>作成日</th>
-    <th>更新日</th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <div class="users-inner-container">
+    <table>
+      <thead>
       <tr>
-        <td><%= user.id %></td>
-        <td><%= image_tag image_set(user), class: 'cover50' %></td>
-        <td><%= user.user_name %></td>
-        <td><%= user.full_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
-        <td><%= user.updated_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+        <th>id</th>
+        <th>アイコン</th>
+        <th>ユーザー名</th>
+        <th>名前</th>
+        <th>メールアドレス</th>
+        <th>作成日</th>
+        <th>更新日</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= image_tag image_set(user), class: 'cover50' %></td>
+            <td><%= user.user_name %></td>
+            <td><%= user.full_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+            <td><%= user.updated_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.users-container -->
+</div><!-- /.users-inner-container -->
